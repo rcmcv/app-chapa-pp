@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import messagebox
+from app.ui import tela_principal
 
 def iniciar_tela_login():
     root = tk.Tk()
@@ -7,14 +8,10 @@ def iniciar_tela_login():
     largura_janela = 300
     altura_janela = 200
 
-    # Obter largura e altura da tela
     largura_tela = root.winfo_screenwidth()
     altura_tela = root.winfo_screenheight()
-
-    # Calcular posição x, y para centralizar
     x = (largura_tela // 2) - (largura_janela // 2)
     y = (altura_tela // 2) - (altura_janela // 2)
-
     root.geometry(f"{largura_janela}x{altura_janela}+{x}+{y}")
     root.resizable(False, False)
 
@@ -32,6 +29,7 @@ def iniciar_tela_login():
         if usuario == "admin" and senha == "123":
             messagebox.showinfo("Login", "Login realizado com sucesso!")
             root.destroy()
+            tela_principal.abrir_tela_principal()
         else:
             messagebox.showerror("Erro", "Usuário ou senha incorretos")
 
