@@ -41,7 +41,7 @@ def criar_tabelas():
         );
     """)
 
-        # Tabela de cálculos de tanques
+    # Tabela de cálculos de tanques
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS calculos_tanques (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -55,7 +55,11 @@ def criar_tabelas():
             chapas_utilizadas INTEGER,
             sobra_mm2 REAL,
             usuario_id INTEGER NOT NULL,
-            data_calculo TEXT DEFAULT CURRENT_TIMESTAMP
+            data_calculo TEXT DEFAULT CURRENT_TIMESTAMP,
+            fundo_d_menor REAL,
+            fundo_altura_cone REAL,
+            tampa_d_menor REAL,
+            tampa_altura_cone REAL
         );
     """)
 

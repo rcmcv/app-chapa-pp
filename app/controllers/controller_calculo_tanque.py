@@ -9,8 +9,9 @@ def inserir_calculo_tanque(dados):
             INSERT INTO calculos_tanques (
                 tipo_tanque, cliente, diametro_mm, altura_mm,
                 fundo_tipo, tampa_tipo, area_total_mm2,
-                chapas_utilizadas, sobra_mm2, usuario_id
-            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                chapas_utilizadas, sobra_mm2, usuario_id,
+                fundo_d_menor, fundo_altura_cone, tampa_d_menor, tampa_altura_cone
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """, dados)
         conn.commit()
         conn.close()
@@ -41,7 +42,8 @@ def editar_calculo_tanque(calculo_id, dados):
             UPDATE calculos_tanques SET
                 tipo_tanque = ?, cliente = ?, diametro_mm = ?, altura_mm = ?,
                 fundo_tipo = ?, tampa_tipo = ?, area_total_mm2 = ?,
-                chapas_utilizadas = ?, sobra_mm2 = ?, usuario_id = ?
+                chapas_utilizadas = ?, sobra_mm2 = ?, usuario_id = ?,
+                fundo_d_menor = ?, fundo_altura_cone = ?, tampa_d_menor = ?, tampa_altura_cone = ?
             WHERE id = ?
         """, (*dados, calculo_id))
         conn.commit()
